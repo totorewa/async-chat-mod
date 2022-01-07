@@ -3,6 +3,8 @@
 This mod creates a thread dedicated to handling and processing chat messages. 
 This removes blocking operations from the main thread which may cause client rendering lag.  
 
+You may see a slight delay in chat messages if the blocklist API is down but the render loop won't be blocked.
+
 ## Technical
 On every chat message received, Minecraft checks if the player UUID is blocked. The list of blocked UUIDs is retrieve from a Minecraft web service API and then cached locally to prevent subsequent fetches. If the UUID is found in the list, the message is thrown away.  
 The fetch request is a blocking operation, and the thread handling the message must wait for a full response from the web server. Because the message is being handled in the main game loop, if a fetch request is initiated, the game can not render until the message has been fully processed. 
