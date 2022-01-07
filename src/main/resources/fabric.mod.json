@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "async-chat",
+  "version": "${version}",
+
+  "name": "Async Chat",
+  "description": "Processes chat messages on a separate thread",
+  "authors": [
+    "Totorewa"
+  ],
+  "contact": {
+    "homepage": "https://github.com/totorewa",
+    "sources": "https://github.com/totorewa/async-chat-mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/async-chat/icon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "github.totorewa.asyncchat.AsyncChatMod"
+    ]
+  },
+  "mixins": [
+    "async-chat.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+  },
+  "custom": {
+  }
+}
