@@ -13,4 +13,10 @@ public class AsyncChatMod implements ModInitializer {
     public static ChatMessageDispatcher getChatMessageDispatcher() {
         return chatMessageDispatcher;
     }
+
+    public static void shutdown() {
+        if (chatMessageDispatcher != null) {
+            chatMessageDispatcher.dispose();
+        }
+    }
 }
