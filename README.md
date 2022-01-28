@@ -11,6 +11,8 @@ The fetch request is a blocking operation, and the thread handling the message m
 
 A blocklist fetch is done on chat message if the blocklist isn't loaded and it's been more than 120 seconds since the last fetch attempt. As of 1.18, the blocklist is also fetched on connect.
 
-This has largely not been that big of an issue because it happens only once per connection, however, as of 2022-01-06 the web server providing the blocklist does not appear to be functioning properly and so the game is failing to retrieve the blocklist. This causes the game client to noticeably lag every 2+ minutes whenever someone sends a message in chat.
+~~This has largely not been that big of an issue because it happens only once per connection, however, as of 2022-01-06 the web server providing the blocklist does not appear to be functioning properly and so the game is failing to retrieve the blocklist. This causes the game client to noticeably lag every 2+ minutes whenever someone sends a message in chat.~~
 
-I have written a mod which disables the blocklist fetch, [no-blocklist-lookup](https://github.com/totorewa/no-blocklist-lookup). Alternatively, this mod does not disable the blocklist fetch, but instead offloads the message handling to another thread so that that thread can be blocked instead of the main thread.
+Nearly a week after 2022-01-06, the blocklist API was restored so lag should no longer be experience in >=1.18. A slight lag will still be experienced in 1.16.4 through to 1.17.1, but installing this mod will prevent that.
+
+~~I have written a mod which disables the blocklist fetch, *no-blocklist-lookup*. Alternatively, this mod does not disable the blocklist fetch, but instead offloads the message handling to another thread so that that thread can be blocked instead of the main thread.~~
