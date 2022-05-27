@@ -7,7 +7,7 @@ name: build
 on:
   push:
     branches:
-      - 'ver/1.18.x'
+      - 'ver/1.19.x'
 
 
 jobs:

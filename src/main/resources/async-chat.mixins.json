@@ -4,7 +4,9 @@
   "package": "github.totorewa.asyncchat.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "ClientPlayNetworkHandlerMixin"
+    "ChatMessageHandlerInvoker",
+    "ClientPacketListenerMixin",
+    "MinecraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1
