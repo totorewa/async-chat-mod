@@ -1,7 +1,6 @@
 package github.totorewa.asyncchat;
 
-import github.totorewa.asyncchat.mixins.ChatMessageHandlerInvoker;
-import net.minecraft.network.chat.ChatSender;
+import net.minecraft.client.multiplayer.chat.ChatListener;
 import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.PlayerChatMessage;
 
@@ -20,12 +19,11 @@ public class ChatMessageDispatcher {
         });
     }
 
-    public void handleMessage(ChatMessageHandlerInvoker handler, ChatType chatType,
-                              PlayerChatMessage message, ChatSender sender) {
+    public void handleMessage(ChatListener handler, PlayerChatMessage playerChatMessage, ChatType.Bound bound) {
         if (disposed) return;
         // Not fully async because the thread will still block on the blocklist fetch request
         // but at least the thread being blocked isn't the main thread.
-        executor.submit(() -> handler.invokeHandlePlayerChat(chatType, message, sender));
+        executor.submit(() -> handler.handleChatMessage(playerChatMessage, bound));
     }
 
     public void dispose() {

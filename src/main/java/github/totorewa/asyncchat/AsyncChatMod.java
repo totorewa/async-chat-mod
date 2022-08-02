@@ -1,12 +1,12 @@
 package github.totorewa.asyncchat;
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 
-public class AsyncChatMod implements ModInitializer {
+public class AsyncChatMod implements ClientModInitializer {
     private static ChatMessageDispatcher chatMessageDispatcher;
 
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
         chatMessageDispatcher = new ChatMessageDispatcher();
     }
 
